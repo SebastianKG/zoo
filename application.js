@@ -1,20 +1,28 @@
 $(function(){ //DOM Ready
+    $(".gridster ul").gridster({
+        widget_margins: [10, 10],
+        widget_base_dimensions: [140, 140]
+        
+    });
+});
+
+/*$(function(){ //DOM Ready
  
-    $(".gridster > ul").gridster({
+    $(".gridster ul").gridster(function () {
         widget_margins: [10, 10],
         widget_base_dimensions: [140, 140]
         min_cols: 3, max_cols:5;
     });
  
-});
-
+});*/
+/*
 $(function () {
-    $("button").click({
+    $("button").click(function () {
         window.alert(gridster.serialize());
         //post_to_url(zoo.php, gridster.serialize(), "post"); //check what gridster's actual output is before trusting this
     });
 });
-
+*/
 /* code from http://stackoverflow.com/questions/133925/javascript-post-request-like-a-form-submit */
 /*
 function post_to_url(path, params, method) {
