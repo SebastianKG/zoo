@@ -5,17 +5,17 @@
 		<link rel="stylesheet" type="text/css" href="main.css">
 	</head>
 	<body>
-		<div id="mycontainer">
-
-		<button type="button" name="logout"  id="logout">Log Out</button>
-
 		<?php 
 			$zooname = ($_COOKIE['zooname']!='' ? $_COOKIE['zooname'] : 'undefined');
-			if ($zooname = 'undefined') {
+			if ($zooname == 'undefined') {
 				header("location: index.php");
 				die();
 			}
 		 ?>
+
+		<div id="mycontainer">
+
+		<button type="button" name="logout"  id="logout">Log Out</button>
 
 		<h1> Our Zoo, <?php echo $zooname; ?> </h1>
 
