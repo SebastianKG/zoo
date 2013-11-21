@@ -5,7 +5,9 @@
 		<link rel="stylesheet" type="text/css" href="main.css">
 	</head>
 	<body>
-		<h1> Our Zoo, <...> </h1>
+		<div id="mycontainer">
+
+		<h1> Our Zoo, <?php echo ($_COOKIE['zooname']!='' ? $_COOKIE['zooname'] : 'Undefined (We Messed Up!)'); ?> </h1>
 
 		<?php
 
@@ -96,7 +98,7 @@
 		}
 		?>
 
-		<div id="mycontainer">
+		
 
 		</div>
 
