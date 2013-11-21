@@ -8,15 +8,15 @@ function setCookie(cookieName,value,exdays) {
 
 $(function () {
 	$( "button" ).click(function( event ) {
-		var myname = event.target.name;
-	  	$( "#log" ).html( "clicked: " + myname );
-	  	setCookie("zooname", myname, 1);
+		var eventId = event.target.id;
+	  	$( "#log" ).html( "clicked: " + eventId );
+	  	setCookie("zooname", eventId, 1);
 	  	window.location.replace("zoo.php");
 	});
 });
 
 $(function() {
-	$('#logout').on("click", fucntion() {
+	$('#logout').on("click", function() {
 		setCookie("zooname","deleted",(-1));
 		window.location.replace("index.php");
 	});
