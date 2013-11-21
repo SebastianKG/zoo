@@ -98,7 +98,7 @@ function printAnimalsWithButtons($result) { //prints results from a select state
 
 function printAllZoos($result) { //prints results from a select statement
 	echo "<table>";
-	echo "<tr><th>Zoo Name</th><th>Owner Name</th><th>Cash</th></tr>";
+	echo "<tr><th></th><th>Zoo Name</th><th>Owner Name</th><th>Cash</th></tr>";
 
 	while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
 		echo "<tr><td> <button type='button' name='" . $row["NAME"] . "'>Log On</button>" . "</td><td>" . $row["NAME"] . "</td><td>" . $row["OWNERNAME"] . "</td><td>" . $row["CASH"] . "</td></tr>";
