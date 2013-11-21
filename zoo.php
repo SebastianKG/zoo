@@ -1,3 +1,10 @@
+<?php
+$myzooname = ($_COOKIE['zooname']!='' ? $_COOKIE['zooname'] : 'Undefined (We Messed Up!)')
+	if ($myzooname = null) {
+		header("Location: index.php");
+		die();
+	}
+?>
 <html>
 	<head>
 		<title>ZOO // CS 304</title>
