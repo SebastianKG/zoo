@@ -76,28 +76,28 @@ function printResult($result) { //prints results from a select statement
 
 function printZooTable($result) { //prints results from a select statement
 	echo "<br>Got data from table tab1:<br>";
-	echo "<table>";
-	echo "<tr><th>ID</th><th>Name</th></tr>";
+	echo "<table cellspacing='0'>";
+	echo "<thead><tr><th>ID</th><th>Name</th></tr></thead><tbody>";
 
 	while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
 		echo "<tr><td>" . $row["NID"] . "</td><td>" . $row["NAME"] . "</td></tr>"; // or just use "echo $row[0]" 
 	}
-	echo "</table>";
+	echo "</tbody></table>";
 
 }
 
 function printAnimalsWithButtons($result) { //prints results from a select statement
-	echo "<table>";
-	echo "<tr><th>Pen #</th><th>Animal Name</th><th>Type</th><th>Hydration</th><th>Fullness</th><th>Hygiene</th><th>Happiness</th><th>Body Size</th><th>Pen Quality</th><th>Max Pen Capacity</th></tr>";
+	echo "<table cellspacing='0'>";
+	echo "<thead><tr><th>Pen #</th><th>Animal Name</th><th>Type</th><th>Hydration</th><th>Fullness</th><th>Hygiene</th><th>Happiness</th><th>Body Size</th><th>Pen Quality</th><th>Max Pen Capacity</th></tr></thead><tbody>";
 
 	while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
 		echo "<tr><td>" . $row["PEN_ID"] . "</td><td>" . $row["NAME"] . "</td><td>" . $row["TYPE"] . "</td><td>" . $row["HYDRATION"] . "</td><td>" . $row["FULLNESS"] . "</td><td>" . $row["HYGIENE"] . "</td><td>" . $row["HAPPINESS"] . "</td><td>" . $row["BODYSIZE"] . "</td><td>" . $row["QUALITY"] . "</td><td>" . $row["MAXPOPULATION"] . "</td></tr>"; //or just use "echo $row[0]" 
 	}
-	echo "</table>";
+	echo "</tbody></table>";
 }
 
 function printAllZoos($result) { //prints results from a select statement
-	echo "<table>";
+	echo "<table cellspacing='0'>";
 	echo "<tr><th></th><th>Zoo Name</th><th>Owner Name</th><th>Cash</th></tr>";
 
 	while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
