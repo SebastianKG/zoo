@@ -2,7 +2,7 @@
 	<head>
 		<title>ULTIMATE ZOO // CS 304 - Zoo View</title>
 		<meta name="description" content="Our cool zoo! Made by Sebastian Kazenbroot-Guppy, Norris Lee and Harlen Bains aka Jamaican Hopscotch Mafia"
-		<link rel="stylesheet" type="text/css" href="main.css">
+		<link rel="stylesheet" type="text/css" href="/main.css"/>
 	</head>
 	<body>
 		<?php 
