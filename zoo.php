@@ -83,7 +83,7 @@
 				header("location: zoo.php");
 			} else {
 				// Select data...
-				$result = executePlainSQL("select id, maxpopulation, quality, name, type, bodysize, hydration, fullness, hygiene, happiness from purchasepen, purchaseanimal where id=pen_id"); // add "and zooname=<"
+				$result = executePlainSQL("select pen_id, maxpopulation, quality, name, type, bodysize, hydration, fullness, hygiene, happiness from purchasepen, purchaseanimal where id=pen_id"); // add "and zooname=<"
 				printAnimalsWithButtons($result);
 			}
 
