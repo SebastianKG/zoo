@@ -30,7 +30,7 @@ function executeBoundSQL($cmdstr, $list) {
 	 the value of variables need to be changed.
 	 In this case you don't need to create the statement several times; 
 	 using bind variables can make the statement be shared and just 
-	 parsed once. This is also very useful in protecting against SQL injection. See example code below for       how this functions is used */
+	 parsed once. This is also very useful in protecting against SQL injection. See example code below for how this functions is used */
 
 	global $db_conn, $success;
 	$statement = OCIParse($db_conn, $cmdstr);
@@ -72,5 +72,16 @@ function printResult($result) { //prints results from a select statement
 	}
 	echo "</table>";
 
+}
+
+function printAnimalsWithButtons($result) { //prints results from a select statement
+	echo "<br>Current Zoo State:<br>";
+	echo "<table>";
+	echo "<tr><th>Pen #</th><th>Animal Name</th><th>Type</th><th>Hydration</th><th>Fullness</th><th>Hygiene</th><th>Happiness</th><th>Body Size</th><th>Pen Quality</th><th>Max Pen Capacity</th></tr>";
+
+	while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
+		echo "<tr><td>" . $row["PEN_ID"] . "</td><td>" . $row["NAME"] . "</td><td>" . $row["TYPE"] . "</td><td>" . $row["HYDRATION"] . "</td><td>" . $row["FULLNESS"] . "</td><td>" . $row["HYGIENE"] . "</td><td>" . $row["HAPPINESS"] . "</td><td>" . $row["BODYSIZE"] . "</td><td>" . $row["QUALITY"] . "</td><td>" . $row["MAXPOPULATION"] . "</td></tr>"; //or just use "echo $row[0]" 
+	}
+	echo "</table>";
 }
 ?>

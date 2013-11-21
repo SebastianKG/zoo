@@ -5,12 +5,14 @@
 		<link rel="stylesheet" type="text/css" href="main.css">
 	</head>
 	<body>
+		<h1> Our Zoo, <...> </h1>
+
 		<?php
 
 		$success = True; //keep track of errors so it redirects the page only if there are no errors
 		$db_conn = OCILogon("ora_w8x7", "a67961045", "ug");
 
-		require ('functions.php'); 
+		require ('functions.php');
 
 		// Connect Oracle...
 		if ($db_conn) {
@@ -78,10 +80,10 @@
 
 			if ($_POST && $success) {
 				//POST-REDIRECT-GET -- See http://en.wikipedia.org/wiki/Post/Redirect/Get
-				header("location: oracle-test.php");
+				header("location: zoo.php");
 			} else {
 				// Select data...
-				$result = executePlainSQL("select * from tab1");
+				$result = executePlainSQL("select id, maxpopulation, quality, name, type, bodysize, hydration, fullness, hygiene, happiness from purchasepen, purchaseanimal where id=pen_id"); // add "and zooname=<"
 				printResult($result);
 			}
 

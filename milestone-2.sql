@@ -1,8 +1,11 @@
 CREATE TABLE PurchaseAnimal (
+	name 				VARCHAR(32),
+	type				VARCHAR(32),
 	hydration			INTEGER,
 	fullness			INTEGER,
-	type				VARCHAR(32),
 	hygiene				INTEGER,
+	happiness 			INTEGER,
+	bodysize			INTEGER,
 	pen_id				INTEGER NOT NULL,
 	zooname				VARCHAR(32),
 	PRIMARY KEY (type, name, zooname),
