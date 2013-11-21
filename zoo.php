@@ -7,6 +7,8 @@
 	<body>
 		<div id="mycontainer">
 
+		<button type="button" name="logout"  id="logout">Log Out</button>
+
 		<h1> Our Zoo, <?php echo ($_COOKIE['zooname']!='' ? $_COOKIE['zooname'] : 'Undefined (We Messed Up!)'); ?> </h1>
 
 		<?php

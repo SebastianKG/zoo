@@ -2,10 +2,11 @@ $( "button" ).click(function( event ) {
 	var myname = event.target.name;
   	$( "#log" ).html( "clicked: " + myname );
   	setCookie("zooname", myname, 1);
+  	window.location.replace("index.php");
 });
 
 $(function() {
-	$('[name="logout"]').on("click", fucntion() {
+	$('#logout').on("click", fucntion() {
 		setCookie("zooname","deleted",(-1));
 		window.location.replace("index.php");
 	});

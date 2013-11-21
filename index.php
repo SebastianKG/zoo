@@ -6,7 +6,7 @@
 	</head>
 	<body> 
 		<div id="mycontainer">
-			<button type="button" name="logout">Log Out</button>
+			<div id="log">ourLog</div>
 
 			<?php
 				$success = True; //keep track of errors so it redirects the page only if there are no errors
@@ -26,8 +26,6 @@
 					echo htmlentities($e['message']);
 				}
 			?>
-
-			<div id="log">ourLog</div>
 		</div>
 
 		<script type="text/javascript" src="http://gridster.net/assets/js/libs/jquery-1.7.2.min.js"></script>
