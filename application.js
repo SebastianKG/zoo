@@ -9,7 +9,6 @@ function setCookie(cookieName,value,exdays) {
 $(function () {
 	$( "button" ).click(function( event ) {
 		var eventId = event.target.id;
-	  	$( "#log" ).html( "clicked: " + eventId );
 	  	setCookie("zooname", eventId, 1);
 	  	window.location.replace("zoo.php");
 	});

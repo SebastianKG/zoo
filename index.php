@@ -6,8 +6,6 @@
 	</head>
 	<body> 
 		<div id="mycontainer">
-			<div id="log">ourLog</div>
-
 			<?php
 				$success = True; //keep track of errors so it redirects the page only if there are no errors
 				$db_conn = OCILogon("ora_w8x7", "a67961045", "ug");
