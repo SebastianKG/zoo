@@ -84,7 +84,7 @@
 			} else {
 				// Select data...
 				$result = executePlainSQL("select id, maxpopulation, quality, name, type, bodysize, hydration, fullness, hygiene, happiness from purchasepen, purchaseanimal where id=pen_id"); // add "and zooname=<"
-				printResult($result);
+				printAnimalsWithButtons($result);
 			}
 
 			//Commit to save changes...
