@@ -9,9 +9,8 @@ CREATE TABLE PurchaseAnimal (
 	pen_id				INTEGER NOT NULL,
 	zooname				VARCHAR(32),
 	PRIMARY KEY (type, name, zooname),
-	FOREIGN KEY (pen_id) REFERENCES PurchasePen(id
-		),
-	FOREIGN KEY (zooname) REFERENCES Zoo(name),
+	FOREIGN KEY (pen_id) REFERENCES PurchasePen(id),
+	FOREIGN KEY (zooname) REFERENCES Zoo(name)
 		ON DELETE CASCADE
 );
 
@@ -22,7 +21,7 @@ CREATE TABLE PurchasePen (
 	maxpopulation		INTEGER,
 	zooname				VARCHAR(32),
 	PRIMARY KEY (id, zooname),
-	FOREIGN KEY (zooname) REFERENCES Zoo(name), 
+	FOREIGN KEY (zooname) REFERENCES Zoo(name)
 		ON DELETE CASCADE
 );
 
@@ -32,7 +31,7 @@ CREATE TABLE ReviewReport (
 	revenue				INTEGER,
 	zooname				VARCHAR(32),
 	PRIMARY KEY (day, zooname),
-	FOREIGN KEY (zooname) REFERENCES Zoo(name), 
+	FOREIGN KEY (zooname) REFERENCES Zoo(name)
 		ON DELETE CASCADE
 );
 
@@ -46,7 +45,7 @@ CREATE TABLE PurchaseItem (
 	price				INTEGER,
 	zooname				VARCHAR(32),
 	PRIMARY KEY (name, zooname),
-	FOREIGN KEY (zooname) REFERENCES Zoo(name), 
+	FOREIGN KEY (zooname) REFERENCES Zoo(name)
 		ON DELETE CASCADE
 );
 
