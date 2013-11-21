@@ -6,7 +6,7 @@
 	</head>
 	<body> 
 		<div id="mycontainer">
-			<button type="button" name="logout">Log Out</btn>
+			<button type="button" name="logout">Log Out</button>
 
 			<?php
 				$success = True; //keep track of errors so it redirects the page only if there are no errors
