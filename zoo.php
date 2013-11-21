@@ -9,7 +9,9 @@
 
 		<button type="button" name="logout"  id="logout">Log Out</button>
 
-		<h1> Our Zoo, <?php echo ($_COOKIE['zooname']!='' ? $_COOKIE['zooname'] : 'Undefined (We Messed Up!)'); ?> </h1>
+		<?php $zooname = ($_COOKIE['zooname']!='' ? $_COOKIE['zooname'] : 'undefined'); ?>
+
+		<h1> Our Zoo, <?php echo $zooname; ?> </h1>
 
 		<?php
 
@@ -87,7 +89,8 @@
 				header("location: zoo.php");
 			} else {
 				// Select data...
-				$result = executePlainSQL("select pen_id, maxpopulation, quality, name, type, bodysize, hydration, fullness, hygiene, happiness from purchasepen, purchaseanimal where id=pen_id"); // add "and zooname=<"
+				$query = "select pen_id, maxpopulation, quality, name, type, bodysize, hydration, fullness, hygiene, happiness from purchasepen, purchaseanimal where id=pen_id and zooname='" . $zooname . "'";
+				$result = executePlainSQL($query);
 				printAnimalsWithButtons($result);
 			}
 
