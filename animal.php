@@ -35,7 +35,7 @@
 		if ($db_conn) {
 
 			// Select data...
-			$query = "select name, type, bodysize, hydration, fullness, hygiene, happiness from purchasepen where zooname='" . $zooname . "' and animalname='" . $animalname . "'";
+			$query = "select name, type, bodysize, hydration, fullness, hygiene, happiness from purchasepen where zooname='" . $zooname . "' and name='" . $animalname . "'";
 			$result = executePlainSQL($query);
 			printAnimalsWithButtons($result);
 
