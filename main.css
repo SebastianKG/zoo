@@ -1,4 +1,9 @@
-/* CSS primarily from http://johnsardine.com/example/simple-little-table/ */
+#mycontainer {
+	margin: 0 auto;
+	width: 960px;
+}
+
+/* CSS below primarily from open-source resource, http://johnsardine.com/example/simple-little-table/ */
 
 body, html  { height: 100%; }
 html, body, div, span, applet, object, iframe,
@@ -152,3 +157,4 @@ table tr:hover td{
 	background: -webkit-gradient(linear, left top, left bottom, from(#f2f2f2), to(#f0f0f0));
 	background: -moz-linear-gradient(top,  #f2f2f2,  #f0f0f0);	
 }
+
