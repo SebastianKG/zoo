@@ -28,27 +28,27 @@
 		if ($db_conn) {
             // Happy Meal, Durian, GameBoy, White Russian, Axe Bodyspray
             if (array_key_exists('HappyMeal', $_POST)) {
-                $query = "update purchaseitem set amount=0 where zooname='" . $zooname ."' and name='HappyMeal'";
+                $query = "update purchaseitem set amount=(select amount from purchaseitem where zooname='" . $zooname . "' and name='HappyMeal')-1 where zooname='" . $zooname ."' and name='HappyMeal'";
                 executePlainSQL($query);
                 OCICommit($db_conn);
             }// Hydration -25, Hygiene -25, Fullness +50, Happiness +50
             if (array_key_exists('Durian', $_POST)) {
-                $query = "update purchaseitem set amount=0 where zooname='" . $zooname ."' and name='Durian'";
+                $query = "update purchaseitem set amount=(select amount from purchaseitem where zooname='" . $zooname . "' and name='Durian')-1 where zooname='" . $zooname ."' and name='Durian'";
                 executePlainSQL($query);
                 OCICommit($db_conn);
             }// Hydration +5, Hygiene -20, Fullness +75, Happiness -10
             if (array_key_exists('GameBoy', $_POST)) {
-                $query = "update purchaseitem set amount=0 where zooname='" . $zooname ."' and name='GameBoy'";
+                $query = "update purchaseitem set amount=(select amount from purchaseitem where zooname='" . $zooname . "' and name='GameBoy')-1 where zooname='" . $zooname ."' and name='GameBoy'";
                 executePlainSQL($query);
                 OCICommit($db_conn);
             }// Hydration -5, Hygiene -20, Fullness -5, Happiness +30
             if (array_key_exists('WhiteRussian', $_POST)) {
-                $query = "update purchaseitem set amount=0 where zooname='" . $zooname ."' and name='WhiteRussian'";
+                $query = "update purchaseitem set amount=(select amount from purchaseitem where zooname='" . $zooname . "' and name='WhiteRussian')-1 where zooname='" . $zooname ."' and name='WhiteRussian'";
                 executePlainSQL($query);
                 OCICommit($db_conn);
             }// Hydration +20, Hygiene -20, Fullness -5, Happiness +20
             if (array_key_exists('AxeBodyspray', $_POST)) {
-                $query = "update purchaseitem set amount=0 where zooname='" . $zooname ."' and name='AxeBodyspray'";
+                $query = "update purchaseitem set amount=(select amount from purchaseitem where zooname='" . $zooname . "' and name='AxeBodyspray')-1 where zooname='" . $zooname ."' and name='AxeBodyspray'";
                 executePlainSQL($query);
                 OCICommit($db_conn);
             }// Hydration 0, Hygiene 20, Fullness 0, Happiness -10
