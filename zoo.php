@@ -14,9 +14,7 @@
 			}
 		 ?>
 
-		<button type="button" name="logout"  id="logout">Log Out</button>
-
-		<h1> Our Zoo, <?php echo $zooname; ?> </h1>
+		<div class="centered"><h1> Our Zoo, <?php echo $zooname; ?> </h1><button type="button" name="logout"  id="logout">Log Out</button><h1>Our Zoo, <?php echo $zooname; ?></h1></div>
 
 		<?php
 
