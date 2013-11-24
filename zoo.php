@@ -8,10 +8,6 @@
 	<body>
 		<?php 
 			$zooname = ($_COOKIE['zooname']!='' ? $_COOKIE['zooname'] : 'undefined');
-			if ($zooname == 'undefined') {
-				header("location: index.php");
-				die();
-			}
 		 ?>
 
 		<div class="centered"><h1> Our Zoo, <?php echo $zooname; ?><button type="button" name="logout"  id="logout" class="logout floatRight">Log Out</button></h1></div>

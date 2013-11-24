@@ -22,12 +22,14 @@ $(function() {
 });
 
 // from http://stackoverflow.com/questions/4430987/how-to-use-post-method-without-a-form
-$('.tendTo').on("click", function() {
-	var eventId = event.target.id;
-	setCookie("animalname", eventId, 1);
-	window.location.replace("animal.php");	
+$(function() {
+    $('.tendTo').on("click", function() {
+        var eventId = event.target.id;
+        setCookie("animalname", eventId, 1);
+        window.location.replace("animal.php");
+    });
 });
-
+                 
 $(function() {
 	$('#backtozoo').on("click", function() {
 		setCookie("animalname","deleted",(-1));
