@@ -9,8 +9,8 @@ CREATE TABLE PurchaseAnimal (
 	pen_id				INTEGER NOT NULL,
 	zooname				VARCHAR(32),
 	PRIMARY KEY (type, name, zooname),
-	FOREIGN KEY (pen_id) REFERENCES PurchasePen(id),
-	FOREIGN KEY (zooname) REFERENCES Zoo(name)
+	FOREIGN KEY (pen_id,zooname) REFERENCES PurchasePen(id,zooname),
+	FOREIGN KEY (zooname) REFERENCES Zoo(name) 
 		ON DELETE CASCADE
 );
 

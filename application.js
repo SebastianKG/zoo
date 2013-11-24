@@ -21,3 +21,8 @@ $(function() {
 	});
 });
 
+// from http://stackoverflow.com/questions/4430987/how-to-use-post-method-without-a-form
+$('.tendTo').click(function() {
+	animalId = event.target.id;
+    $.post("animal.php", { name: animalId });
+ });
