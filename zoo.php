@@ -14,7 +14,7 @@
 			}
 		 ?>
 
-		<div class="centered"><h1 class="floatLeft"> Our Zoo, <?php echo $zooname; ?> </h1><button type="button" name="logout"  id="logout" class="floatLeft">Log Out</button></div>
+		<div class="centered"><h1> Our Zoo, <?php echo $zooname; ?><button type="button" name="logout"  id="logout" class="floatRight">Log Out</button></h1></div>
 		<div class="clearAll"></div>
 
 		<?php
