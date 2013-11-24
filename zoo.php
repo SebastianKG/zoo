@@ -27,15 +27,10 @@
 		// Connect Oracle...
 		if ($db_conn) {
 
-			if ($_POST && $success) {
-				//POST-REDIRECT-GET -- See http://en.wikipedia.org/wiki/Post/Redirect/Get
-				header("location: zoo.php");
-			} else {
-				// Select data...
-				$query = "select pen_id, maxpopulation, quality, name, type, bodysize, hydration, fullness, hygiene, happiness from purchasepen, purchaseanimal where id=pen_id and purchasepen.zooname='" . $zooname . "'";
-				$result = executePlainSQL($query);
-				printAnimalsWithButtons($result);
-			}
+			// Select data...
+			$query = "select pen_id, maxpopulation, quality, name, type, bodysize, hydration, fullness, hygiene, happiness from purchasepen, purchaseanimal where id=pen_id and purchasepen.zooname='" . $zooname . "'";
+			$result = executePlainSQL($query);
+			printAnimalsWithButtons($result);
 
 			//Commit to save changes...
 			OCILogoff($db_conn);

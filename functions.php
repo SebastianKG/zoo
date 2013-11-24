@@ -87,7 +87,7 @@ function printZooTable($result) { //prints results from a select statement
 
 function printAnimalsWithButtons($result) { //prints results from a select statement
 	echo "<table cellspacing='0'>";
-	echo "<thead><tr><th>Pen #</th><th>Animal Name</th><th>Type</th><th>Hydration</th><th>Fullness</th><th>Hygiene</th><th>Happiness</th><th>Body Size</th><th>Pen Quality</th><th>Max Pen Capacity</th></tr></thead><tbody>";
+	echo "<thead><tr><th>Pen #</th><th>Animal Name</th><th>Type</th><th>Hydration</th><th>Fullness</th><th>Hygiene</th><th>Happiness</th><th>Body Size</th><th>Pen Quality</th><th>Max Pen Capacity</th><th>Tend To</th></tr></thead><tbody>";
 
 	while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
 		echo "<tr><td>" . $row["PEN_ID"] . "</td><td>" . $row["NAME"] . "</td><td>" . $row["TYPE"] . "</td><td>" . $row["HYDRATION"] . "</td><td>" . $row["FULLNESS"] . "</td><td>" . $row["HYGIENE"] . "</td><td>" . $row["HAPPINESS"] . "</td><td>" . $row["BODYSIZE"] . "</td><td>" . $row["QUALITY"] . "</td><td>" . $row["MAXPOPULATION"] . "<button id='" . $row['NAME'] . "' class='tendTo' type='button'>Tend To</button>" . "</td></tr>"; //or just use "echo $row[0]" 
@@ -102,36 +102,5 @@ function printAllZoos($result) { //prints results from a select statement
 	while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
 		echo "<tr><td> <button type='button' id='" . $row["NAME"] . "'>Log On</button>" . "</td><td>" . $row["NAME"] . "</td><td>" . $row["OWNERNAME"] . "</td><td>" . $row["CASH"] . "</td></tr>";
 	}
-}
-
-function do_post_request($url, $postdata)
-{
-  $content = "";
-
-  // Add post data to request.
-  foreach($postdata as $key => $value)
-  {
-    $content .= "{$key}={$value}&";
-  }
-
-  $params = array('http' => array(
-    'method' => 'POST',
-    'header' => 'Content-Type: application/x-www-form-urlencoded',
-    'content' => $content
-  ));
-
-  $ctx = stream_context_create($params);
-  $fp = fopen($url, 'rb', false, $ctx);
-
-  if (!$fp) {
-    throw new Exception("Connection problem, {$php_errormsg}");
-  }
-
-  $response = @stream_get_contents($fp);
-  if ($response === false) {
-    throw new Exception("Response error, {$php_errormsg}");
-  }
-
-  return $response;
 }
 ?>
