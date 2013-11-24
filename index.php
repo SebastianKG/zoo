@@ -12,6 +12,18 @@
 
 				require ('functions.php');
 
+				if (array_key_exists('createnewzoo', $_POST)) {
+	                // Update tuple using data from user
+					$tuple = array (
+						":bind1" => $_POST['newzoo'];
+					);
+					$alltuples = array (
+						$tuple
+					);
+					executeBoundSQL(/*       enter SQL here       */, $alltuples);     
+					OCICommit($db_conn);
+            	}
+
 				if ($db_conn) {
 					$result = executePlainSQL("select * from zoo");
 					printAllZoos($result);
@@ -26,7 +38,7 @@
 			?>
 
 			<form method="POST" action="index.php">
-				Create New Zoo<br/>Enter New Zoo Name: <input type="text" name="newzoo"> <button type="submit">Create</button>
+				Create New Zoo<br/>Enter New Zoo Name: <input type="text" name="newzoo"> <input type="submit" name="createnewzoo">Create</button>
 			</form>
 
 		<script type="text/javascript" src="http://gridster.net/assets/js/libs/jquery-1.7.2.min.js"></script>
