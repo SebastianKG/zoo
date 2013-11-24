@@ -7,7 +7,7 @@ function setCookie(cookieName,value,exdays) {
 }
 
 $(function () {
-	$( "button" ).click(function( event ) {
+	$( ".logout" ).click(function( event ) {
 		var eventId = event.target.id;
 	  	setCookie("zooname", eventId, 1);
 	  	window.location.replace("zoo.php");

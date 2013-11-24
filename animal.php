@@ -20,7 +20,7 @@
 			}
 		 ?>
 
-		<div class="centered"><h1> Tending to <?php echo $animalname; ?><button type="button" name="backtozoo"  id="backctozoo" class="floatRight">Back to Zoo</button></h1></div>
+		<div class="centered"><h1> Tending to <?php echo $animalname; ?><button type="button" name="backtozoo"  id="backtozoo" class="floatRight">Back to Zoo</button></h1></div>
 		<div class="clearAll"></div>
 
 
