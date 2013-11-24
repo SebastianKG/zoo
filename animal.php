@@ -37,7 +37,7 @@
 			// Select data...
 			$query = "select name, type, bodysize, hydration, fullness, hygiene, happiness from purchaseanimal where zooname='" . $zooname . "' and name='" . $animalname . "'";
 			$result = executePlainSQL($query);
-			printAnimalsWithButtons($result);
+			printAnimal($result);
 
 			//Commit to save changes...
 			OCILogoff($db_conn);
