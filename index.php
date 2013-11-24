@@ -25,6 +25,10 @@
 				}
 			?>
 
+			<form method="POST" action="index.php">
+				Create New Zoo<br/>Enter New Zoo Name: <input type="text" name="newzoo"> <button type="submit">Create</button>
+			</form>
+
 		<script type="text/javascript" src="http://gridster.net/assets/js/libs/jquery-1.7.2.min.js"></script>
 		<script src="application.js" type="text/javascript"></script>
 	</body>
