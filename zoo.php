@@ -14,8 +14,6 @@
 			}
 		 ?>
 
-		<div id="mycontainer">
-
 		<button type="button" name="logout"  id="logout">Log Out</button>
 
 		<h1> Our Zoo, <?php echo $zooname; ?> </h1>
@@ -109,10 +107,6 @@
 			echo htmlentities($e['message']);
 		}
 		?>
-
-		
-
-		</div>
 
 		<script type="text/javascript" src="http://gridster.net/assets/js/libs/jquery-1.7.2.min.js"></script>
   		<script src="application.js" type="text/javascript"></script>
