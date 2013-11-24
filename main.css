@@ -1,4 +1,6 @@
 .centered {text-align: center;}
+.floatLeft {float:left;}
+.clearFloat{clear:all;}
 
 /* CSS below primarily from open-source resource, http://johnsardine.com/example/simple-little-table/ */
 
