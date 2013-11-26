@@ -23,7 +23,7 @@
 			// Connect Oracle...
 			if ($db_conn) {
 					// Select data...
-					$query = "select day, revenue, expense from reviewreport where zooname='" . $zooname . "'";
+					$query = "select day, cash from reviewreport where zooname='" . $zooname . "'";
 					$result = executePlainSQL($query);
 					printReport($result);
 
