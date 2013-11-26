@@ -158,6 +158,16 @@ function printReport($result) { //prints results from a select statement
     echo "</tbody></table>";
 }
     
+function printNestedAggregationTable($result) { //prints results from a select statement
+    echo "<table cellspacing='0'>";
+    echo "<thead><tr><th>Zoo Name</th></tr></thead><tbody>";
+        
+    while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
+        echo "<tr><td>" . $row["NAME"] . "</td></tr>";
+    }
+    echo "</tbody></table>";
+}
+    
 function printAllZoos($result) { //prints results from a select statement
 	echo "<table cellspacing='0'>";
 	echo "<thead><tr><th></th><th>Zoo Name</th><th>Owner Name</th><th>Cash</th></tr></thead><tbody>";
