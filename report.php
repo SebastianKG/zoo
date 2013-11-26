@@ -26,7 +26,6 @@
 					$query = "select day, revenue, expense from reviewreport where zooname='" . $zooname . "'";
 					$result = executePlainSQL($query);
 					printReport($result);
-				}
 
 				//Commit to save changes...
 				OCILogoff($db_conn);
