@@ -39,35 +39,35 @@
 					   $penID = $_POST['penId'];
 					   $name = $_POST['newanimalname'];
 					   if ($animal == "Charizard") {
-					   	$query = "insert into purchaseanimal values ('" . $name . "','Charizard',50,50,50,50,$charizardBodySize,$penID,'" . $zooname ."')";
+					   	$query = "insert into purchaseanimal values ('" . $name . "','Charizard',50,50,50,50," . $charizardBodySize . ",$penID,'" . $zooname ."')";
 					   	$popQuery = "update purchasepen set currentpopulation = (select currentpopulation from purchasepen where zooname = '" . $zooname . "') + " . $charizardBodySize . "";
 		                $cashquery = "update zoo set cash=(select cash from zoo where name='" . $zooname . "')-" . $charizardCost . " where name='" . $zooname . "'";
 		                executePlainSQL($query);
 		                executePlainSQL($popQuery);
 		                executePlainSQL($cashquery);
 					   } else if ($animal == "Snorlax") {
-					   	$query = "insert into purchaseanimal values ('" . $name . "','Snorlax',50,50,50,50,$snorlaxBodySize,$penID,'" . $zooname ."')";
+					   	$query = "insert into purchaseanimal values ('" . $name . "','Snorlax',50,50,50,50," . $snorlaxBodySize . ",$penID,'" . $zooname ."')";
 					   	$popQuery = "update purchasepen set currentpopulation = (select currentpopulation from purchasepen where zooname = '" . $zooname . "') + " . $snorlaxBodySize . "";
 		                $cashquery = "update zoo set cash=(select cash from zoo where name='" . $zooname . "')-" . $snorlaxCost . " where name='" . $zooname . "'";
 		                executePlainSQL($query);
 		                executePlainSQL($popQuery);
 		                executePlainSQL($cashquery);
 					   } else if ($animal == "Witch") {
-					   	$query = "insert into purchaseanimal values ('" . $name . "','Witch',50,50,50,50,$witchBodySize,$penID,'" . $zooname ."')";
+					   	$query = "insert into purchaseanimal values ('" . $name . "','Witch',50,50,50,50," . $witchBodySize . ",$penID,'" . $zooname ."')";
 					   	$popQuery = "update purchasepen set currentpopulation = (select currentpopulation from purchasepen where zooname = '" . $zooname . "') + " . $witchBodySize . "";
 		                $cashquery = "update zoo set cash=(select cash from zoo where name='" . $zooname . "')-" . $witchCost . " where name='" . $zooname . "'";
 		                executePlainSQL($query);
 		                executePlainSQL($popQuery);
 		                executePlainSQL($cashquery);
 					   } else if ($animal == "Ant") {
-					   	$query = "insert into purchaseanimal values ('" . $name . "','Giraffe',50,50,50,50,$antBodySize,$penID,'" . $zooname ."')";
+					   	$query = "insert into purchaseanimal values ('" . $name . "','Giraffe',50,50,50,50," . $antBodySize . ",$penID,'" . $zooname ."')";
 					   	$popQuery = "update purchasepen set currentpopulation = (select currentpopulation from purchasepen where zooname = '" . $zooname . "') + " . $antBodySize . "";
 		                $cashquery = "update zoo set cash=(select cash from zoo where name='" . $zooname . "')-" . $antCost . " where name='" . $zooname . "'";
 		                executePlainSQL($query);
 		                executePlainSQL($popQuery);
 		                executePlainSQL($cashquery);
 					   } else if ($animal == "Giraffe") {
-					   	$query = "insert into purchaseanimal values ('" . $name . "','Giraffe',50,50,50,50,$giraffeBodySize,$penID,'" . $zooname ."')";
+					   	$query = "insert into purchaseanimal values ('" . $name . "','Giraffe',50,50,50,50," . $giraffeBodySize . ",$penID,'" . $zooname ."')";
 					   	$popQuery = "update purchasepen set currentpopulation = (select currentpopulation from purchasepen where zooname = '" . $zooname . "') + " . $giraffeBodySize . "";
 		                $cashquery = "update zoo set cash=(select cash from zoo where name='" . $zooname . "')-" . $giraffeCost . " where name='" . $zooname . "'";
 		                executePlainSQL($query);
@@ -117,7 +117,6 @@
 				<form method="POST" action="zoo.php">
 					<h3><div class="centered"><input type="submit" name="addnewpen" value="Add New Pen"></div></h3>
 				</form>
-				<p>Total Capacity = <?php echo $totalCapacity; ?></p>
 			</div>
 
 			<div class="submitbox">
