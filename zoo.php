@@ -126,7 +126,7 @@
 					  <option value="Charizard">Charizard</option>
 					  <option value="Snorlax">Snorlax</option>
 					  <option value="Witch">Witch</option>
-					  <option value="Ant">Ants</option>
+					  <option value="Ant">Ant</option>
 					  <option value="Giraffe">Giraffe</option>
 					</select>
 					<br/>Pen # to insert into: <input type="text" name="penId">
