@@ -23,7 +23,9 @@
 
 				$myquery = "select cash from zoo where name = '" . $zooname . "'";
 				$myresult = executePlainSQL($myquery);
-				echo "<div class='centered'> Cash: " . $myresult . "</div>";
+				while ($row = OCI_Fetch_Array($myresult, OCI_BOTH)) {
+					echo "<div class='centered'> Cash: " . $row["CASH"] . "</div>";
+				}
 
 				require ('functions.php');
 
