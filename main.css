@@ -1,6 +1,7 @@
-.centered {text-align: center;}
-.floatLeft {float:left;}
-.clearFloat{clear:all;}
+.centered { text-align: center; }
+.floatLeft { float: left; }
+.clearFloat { clear: all; }
+.submitbox { margin: 10px auto; }
 
 /* CSS below primarily from open-source resource, http://johnsardine.com/example/simple-little-table/ */
 

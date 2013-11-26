@@ -36,12 +36,11 @@
 					echo htmlentities($e['message']);
 				}
 			?>
-
-			<form method="POST" action="index.php">
-				Create New Zoo<br/>Enter New Zoo Name: <input type="text" name="newzoo">
-				<br/>Enter Owner Name <input type="text" name="newowner">
-				<br/><input type="submit" name="createnewzoo">
-			</form>
+			<div class="submitbox">
+				<form method="POST" action="index.php">
+					<h1>Create New Zoo<br/>Enter New Zoo Name: <input type="text" name="newzoo"> Enter Owner Name <input type="text" name="newowner"> <input type="submit" name="createnewzoo"></h1>
+				</form>
+			</div>
 
 		<script type="text/javascript" src="http://gridster.net/assets/js/libs/jquery-1.7.2.min.js"></script>
 		<script src="application.js" type="text/javascript"></script>
