@@ -26,27 +26,27 @@
 			/* ANIMAL CONSTANTS */
 
 			/* Charizard */
-			$charizardBozySize = 4;
+			$charizardBodySize = 4;
 			$charizardCost = 1000;
 
 			/* Snorlax */
 
-			$snorlaxBozySize = 5;
+			$snorlaxBodySize = 5;
 			$snorlaxCost = 1500;
 
 			/* Witches */
 
-			$witchBozySize = 2;
+			$witchBodySize = 2;
 			$witchCost = 800;
 
 			/* Giraffes */
 
-			$giraffeBozySize = 3;
+			$giraffeBodySize = 3;
 			$giraffeCost = 300;
 
 			/* Ants */
 
-			$antBozySize = 1;
+			$antBodySize = 1;
 			$antCost = 10;
 
 			require ('functions.php');
