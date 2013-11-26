@@ -24,10 +24,9 @@ CREATE TABLE PurchaseItem (
 		ON DELETE CASCADE
 );
 CREATE TABLE ReviewReport (
-	expense			INTEGER,
-	day			DATE,
-	revenue			INTEGER,
-	zooname			VARCHAR(32),
+	day					DATE,
+	cash				INTEGER,
+	zooname				VARCHAR(32),
 	PRIMARY KEY (day, zooname),
 	FOREIGN KEY (zooname) REFERENCES Zoo(name)
 		ON DELETE CASCADE
