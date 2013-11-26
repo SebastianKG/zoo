@@ -153,7 +153,7 @@ function printAllZoos($result) { //prints results from a select statement
 	echo "<thead><tr><th></th><th>Zoo Name</th><th>Owner Name</th><th>Cash</th></tr></thead><tbody>";
 
 	while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
-		echo "<tr><td> <button type='button' class='logon' id='" . $row["NAME"] . "'>Log On</button>" . "</td><td>" . $row["NAME"] . "</td><td>" . $row["OWNERNAME"] . "</td><td>" . $row["CASH"] . "</td></tr>";
+		echo "<tr><td> <button type='button' class='logon' id='" . $row["NAME"] . "'>Log On</button>" . "</td><td>" . $row["NAME"] . "</td><td>" . $row["OWNERNAME"] . "</td><td>" . $row["CASH"] . "</td><td><form name='" . $row["NAME"] . "' action='zoo.php' method='post'><input type='hidden' name='delzooname' value='" . $row["NAME"] . "'><input type='submit' name='delButton' value='Slaughter'></form>" . "</td></tr>";
 	}
     echo "</tbody></table>";
 }

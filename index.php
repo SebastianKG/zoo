@@ -6,6 +6,8 @@
 	</head>
 	<body> 
 		<div id="mycontainer">
+			<div class="centered"><h1>ZOO</h1></div>
+
 			<?php
 				$success = True; //keep track of errors so it redirects the page only if there are no errors
 				$db_conn = OCILogon("ora_w8x7", "a67961045", "ug");
@@ -23,6 +25,11 @@
 					);
 					executeBoundSQL("insert into zoo values (:bind1,$defaultcash,:bind2)", $alltuples);     
 					OCICommit($db_conn);
+            	} else if (array_key_exists('delButton', $_POST)) {
+            		$name = $_POST['delzooname'];
+	                $query = "delete from zoo where name='" . $name . "'";
+	                $result = executePlainSQL($query);
+	                OCICommit($db_conn);
             	}
 
 				if ($db_conn) {
