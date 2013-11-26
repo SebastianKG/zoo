@@ -26,7 +26,7 @@ CREATE TABLE PurchasePen (
 );
 
 CREATE TABLE ReviewReport (
-	day					DATE,
+	day					INTEGER,
 	cash				INTEGER,
 	zooname				VARCHAR(32),
 	PRIMARY KEY (day, zooname),
