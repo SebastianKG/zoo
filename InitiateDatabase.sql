@@ -77,4 +77,4 @@ insert into purchasepen values (1, 100, 1, 10, 'MyCoolZoo');
 insert into purchaseanimal values ('Pikachu', 'Charizard', 78, 87, 67, 79, 4, 2, 'PokeZoo');
 insert into purchaseanimal values ('Zzzzz', 'Snorlax', 45, 80, 23, 50, 5, 1, 'PokeZoo');
 insert into purchaseanimal values ('Antsy', 'Ant', 25, 52, 43, 45, 1, 1, 'PokeZoo');
-insert into purchaseanimal values ('Tiny', 'Ant', 80, 81, 82, 83, 1, 1, 'MyCoolZoo')
+insert into purchaseanimal values ('Tiny', 'Ant', 80, 81, 82, 83, 1, 1, 'MyCoolZoo');
