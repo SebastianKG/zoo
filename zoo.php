@@ -71,35 +71,35 @@
 					   $name = $_POST['newanimalname'];
 					   if ($animal == "Charizard") {
 					   	$query = "insert into purchaseanimal values ('" . $name . "','Charizard',50,50,50,50," . $charizardBodySize . ",$penID,'" . $zooname ."')";
-					   	$popQuery = "update purchasepen set currentpopulation = (select currentpopulation from purchasepen where zooname = '" . $zooname . "') + " . $charizardBodySize . "";
+					   	$popQuery = "update purchasepen set currentpopulation = (select currentpopulation from purchasepen where zooname = '" . $zooname . "' and pen_id = '" . $penID . "') + " . $charizardBodySize . "";
 		                $cashquery = "update zoo set cash=(select cash from zoo where name='" . $zooname . "')-" . $charizardCost . " where name='" . $zooname . "'";
 		                executePlainSQL($query);
 		                executePlainSQL($popQuery);
 		                executePlainSQL($cashquery);
 					   } else if ($animal == "Snorlax") {
 					   	$query = "insert into purchaseanimal values ('" . $name . "','Snorlax',50,50,50,50," . $snorlaxBodySize . ",$penID,'" . $zooname ."')";
-					   	$popQuery = "update purchasepen set currentpopulation = (select currentpopulation from purchasepen where zooname = '" . $zooname . "') + " . $snorlaxBodySize . "";
+					   	$popQuery = "update purchasepen set currentpopulation = (select currentpopulation from purchasepen where zooname = '" . $zooname . "' and pen_id = '" . $penID . "') + " . $snorlaxBodySize . "";
 		                $cashquery = "update zoo set cash=(select cash from zoo where name='" . $zooname . "')-" . $snorlaxCost . " where name='" . $zooname . "'";
 		                executePlainSQL($query);
 		                executePlainSQL($popQuery);
 		                executePlainSQL($cashquery);
 					   } else if ($animal == "Witch") {
 					   	$query = "insert into purchaseanimal values ('" . $name . "','Witch',50,50,50,50," . $witchBodySize . ",$penID,'" . $zooname ."')";
-					   	$popQuery = "update purchasepen set currentpopulation = (select currentpopulation from purchasepen where zooname = '" . $zooname . "') + " . $witchBodySize . "";
+					   	$popQuery = "update purchasepen set currentpopulation = (select currentpopulation from purchasepen where zooname = '" . $zooname . "' and pen_id = '" . $penID . "') + " . $witchBodySize . "";
 		                $cashquery = "update zoo set cash=(select cash from zoo where name='" . $zooname . "')-" . $witchCost . " where name='" . $zooname . "'";
 		                executePlainSQL($query);
 		                executePlainSQL($popQuery);
 		                executePlainSQL($cashquery);
 					   } else if ($animal == "Ant") {
 					   	$query = "insert into purchaseanimal values ('" . $name . "','Ant',50,50,50,50," . $antBodySize . ",$penID,'" . $zooname ."')";
-					   	$popQuery = "update purchasepen set currentpopulation = (select currentpopulation from purchasepen where zooname = '" . $zooname . "') + " . $antBodySize . "";
+					   	$popQuery = "update purchasepen set currentpopulation = (select currentpopulation from purchasepen where zooname = '" . $zooname . "' and pen_id = '" . $penID . "') + " . $antBodySize . "";
 		                $cashquery = "update zoo set cash=(select cash from zoo where name='" . $zooname . "')-" . $antCost . " where name='" . $zooname . "'";
 		                executePlainSQL($query);
 		                executePlainSQL($popQuery);
 		                executePlainSQL($cashquery);
 					   } else if ($animal == "Giraffe") {
 					   	$query = "insert into purchaseanimal values ('" . $name . "','Giraffe',50,50,50,50," . $giraffeBodySize . ",$penID,'" . $zooname ."')";
-					   	$popQuery = "update purchasepen set currentpopulation = (select currentpopulation from purchasepen where zooname = '" . $zooname . "') + " . $giraffeBodySize . "";
+					   	$popQuery = "update purchasepen set currentpopulation = (select currentpopulation from purchasepen where zooname = '" . $zooname . "' and pen_id = '" . $penID . "') + " . $giraffeBodySize . "";
 		                $cashquery = "update zoo set cash=(select cash from zoo where name='" . $zooname . "')-" . $giraffeCost . " where name='" . $zooname . "'";
 		                executePlainSQL($query);
 		                executePlainSQL($popQuery);
