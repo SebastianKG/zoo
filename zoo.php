@@ -60,7 +60,7 @@
 		                executePlainSQL($popQuery);
 		                executePlainSQL($cashquery);
 					   } else if ($animal == "Ant") {
-					   	$query = "insert into purchaseanimal values ('" . $name . "','Giraffe',50,50,50,50," . $antBodySize . ",$penID,'" . $zooname ."')";
+					   	$query = "insert into purchaseanimal values ('" . $name . "','Ant',50,50,50,50," . $antBodySize . ",$penID,'" . $zooname ."')";
 					   	$popQuery = "update purchasepen set currentpopulation = (select currentpopulation from purchasepen where zooname = '" . $zooname . "') + " . $antBodySize . "";
 		                $cashquery = "update zoo set cash=(select cash from zoo where name='" . $zooname . "')-" . $antCost . " where name='" . $zooname . "'";
 		                executePlainSQL($query);
