@@ -26,7 +26,7 @@
 				if (array_key_exists('delButton', $_POST)) {
 	                $name = $_POST['delanimalname'];
 	                $query = "delete from purchaseanimal where name=$name and zooname=$zooname";
-	                result = executePlainSQL($query);
+	                $result = executePlainSQL($query);
 	                OCICommit($db_conn);
             	}
 
