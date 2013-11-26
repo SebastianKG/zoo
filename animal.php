@@ -83,7 +83,7 @@
 		                // Select data...
 		                $itemQuery = "select name, hydrationeffect, hygieneeffect, fullnesseffect, happinesseffect, amount, price from purchaseitem where zooname='" . $zooname . "' AND amount>0";
 		                $itemResult = executePlainSQL($itemQuery);
-		                printItems($itemResult);
+		                printItems($itemResult); // remove this
 		            } else {
 		                // Select data...
 		                $query = "select name, type, bodysize, hydration, fullness, hygiene, happiness from purchaseanimal where zooname='" . $zooname . "' and name='" . $animalname . "'";
