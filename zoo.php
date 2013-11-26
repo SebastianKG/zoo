@@ -154,6 +154,9 @@
 				</form>
 			</div>
 
+            <button type="button" name="reviewReports" id=<?php echo $zooname; ?> class="reviewReports centered">Review Reports</button>
+            <div class="clearAll"></div>
+
 			<div class="submitbox">
 				<form method="POST" action="zoo.php">
 					<select id="animal" name="animal">                      

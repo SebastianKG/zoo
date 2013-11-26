@@ -150,7 +150,7 @@ function printAnimalsWithButtons($result) { //prints results from a select state
     
 function printReport($result) { //prints results from a select statement
     echo "<table cellspacing='0'>";
-    echo "<thead><tr><th></th><th>Day</th><th>Cash</th></tr></thead><tbody>";
+    echo "<thead><tr><th>Day</th><th>Cash</th></tr></thead><tbody>";
         
     while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
         echo "<tr><td>" . $row["DAY"] . "</td><td>" . $row["CASH"] . "</td></tr>";

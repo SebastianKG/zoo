@@ -36,3 +36,11 @@ $(function() {
 		window.location.replace("zoo.php");
 	});
 });
+
+$(function() {
+  $('.reviewReports').on("click", function() {
+        var eventId = event.target.id;
+        setCookie("zooname", eventId, 1);
+        window.location.replace("report.php");
+    });
+});
