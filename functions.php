@@ -148,6 +148,16 @@ function printAnimalsWithButtons($result) { //prints results from a select state
 	echo "</tbody></table>";
 }
     
+function printReport($result) { //prints results from a select statement
+    echo "<table cellspacing='0'>";
+    echo "<thead><tr><th></th><th>Day</th><th>Revenue</th><th>Expense</th></tr></thead><tbody>";
+        
+    while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
+        echo "<tr><td>" . $row["DAY"] . "</td><td>" . $row["REVENUE"] . "</td><td>" . $row["EXPENSE"] . "</td></tr>";
+    }
+    echo "</tbody></table>";
+}
+    
 function printAllZoos($result) { //prints results from a select statement
 	echo "<table cellspacing='0'>";
 	echo "<thead><tr><th></th><th>Zoo Name</th><th>Owner Name</th><th>Cash</th></tr></thead><tbody>";
