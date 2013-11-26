@@ -19,7 +19,7 @@
 					$alltuples = array (
 						$tuple
 					);
-					executeBoundSQL(/*       enter SQL here       */, $alltuples);     
+					executeBoundSQL("insert into zoo values (:bind1,1000,Harlen)", $alltuples);     
 					OCICommit($db_conn);
             	}
 
