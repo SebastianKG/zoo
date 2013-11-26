@@ -3,7 +3,33 @@
 /* CONSTANTS */
 
 /* ZOO CONSTANTS */
-$defaultcash = 1000;
+$defaultcash = 10000;
+
+/* ANIMAL CONSTANTS */
+
+/* Charizard */
+$charizardBozySize = 4;
+$charizardCost = 1000;
+
+/* Snorlax */
+
+$snorlaxBozySize = 5;
+$snorlaxCost = 1500;
+
+/* Witches */
+
+$witchesBozySize = 2;
+$witchesCost = 800;
+
+/* Giraffes */
+
+$giraffeBozySize = 3;
+$giraffeCost = 300;
+
+/* Ants */
+
+$antBozySize = 1;
+$antCost = 10;
 
 function executePlainSQL($cmdstr) { //takes a plain (no bound variables) SQL command and executes it
 	//echo "<br>running ".$cmdstr."<br>";
