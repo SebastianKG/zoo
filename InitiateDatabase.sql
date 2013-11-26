@@ -35,7 +35,6 @@ CREATE TABLE PurchasePen (
 	currentpopulation	INTEGER,
 	quality			INTEGER,
 	id 			INTEGER,
-	maxpopulation		INTEGER,
 	zooname			VARCHAR(32),
 	PRIMARY KEY (id, zooname),
 	FOREIGN KEY (zooname) REFERENCES Zoo(name)
@@ -75,10 +74,10 @@ insert into purchaseitem values ('Durian', 5, -20, 50, -10, 30, 200, 'Best Zoo E
 insert into purchaseitem values ('GameBoy', -5, -20, -5, 30, 30, 500, 'Best Zoo Ever');
 insert into purchaseitem values ('WhiteRussian', 20, -20, -5, 20, 30, 250, 'Best Zoo Ever');
 insert into purchaseitem values ('AxeBodyspray', 0, 20, 0, -10, 30, 150, 'Best Zoo Ever');
-insert into purchasepen values (6, 75, 1, 10, 'PokeZoo');
-insert into purchasepen values (4, 40, 2, 10, 'PokeZoo');
-insert into purchasepen values (1, 100, 1, 10, 'MyCoolZoo');
-insert into purchasepen values (15, 100, 1, 20, 'Best Zoo Ever');
+insert into purchasepen values (6, 75, 1, 'PokeZoo');
+insert into purchasepen values (4, 40, 2, 'PokeZoo');
+insert into purchasepen values (1, 100, 1, 'MyCoolZoo');
+insert into purchasepen values (15, 100, 1, 'Best Zoo Ever');
 insert into purchaseanimal values ('Pikachu', 'Charizard', 78, 87, 67, 79, 4, 2, 'PokeZoo');
 insert into purchaseanimal values ('Zzzzz', 'Snorlax', 45, 80, 23, 50, 5, 1, 'PokeZoo');
 insert into purchaseanimal values ('Antsy', 'Ant', 25, 52, 43, 45, 1, 1, 'PokeZoo');

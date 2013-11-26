@@ -18,7 +18,6 @@ CREATE TABLE PurchasePen (
 	currentpopulation	INTEGER,
 	quality				INTEGER,
 	id 					INTEGER,
-	maxpopulation		INTEGER,
 	zooname				VARCHAR(32),
 	PRIMARY KEY (id, zooname),
 	FOREIGN KEY (zooname) REFERENCES Zoo(name)
