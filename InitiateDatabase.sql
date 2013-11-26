@@ -55,8 +55,7 @@ CREATE TABLE PurchaseAnimal (
 	PRIMARY KEY (type, name, zooname),
 	FOREIGN KEY (pen_id,zooname) REFERENCES PurchasePen(id,zooname),
 	FOREIGN KEY (zooname) REFERENCES Zoo(name) 
-		ON DELETE CASCADE,
-    CHECK (hydration >= 0 AND fullness >= 0 AND hygiene >= 0 AND happiness >= 0)
+		ON DELETE CASCADE
 );
 
 insert into zoo values ('PokeZoo', 50000, 'Harlen');
