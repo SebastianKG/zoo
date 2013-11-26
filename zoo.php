@@ -13,7 +13,7 @@
 			<div class="centered"><h1> Our Zoo, <?php echo $zooname; ?><button type="button" name="logout"  id="logout" class="logout floatRight">Log Out</button></h1></div>
 			<div class="clearAll"></div>
 
-			<div class="centered"><?php echo executePlainSQL("select cash from zoo where zooname='" . $zooname . "'");?></div>
+			<div class="centered"><?php echo executePlainSQL("select cash from zoo where name='" . $zooname . "'");?></div>
 
 			<?php
 
