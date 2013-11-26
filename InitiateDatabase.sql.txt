@@ -1,6 +1,0 @@
-drop table reviewreport;
-drop table purchaesanimal;
-drop table purchaseitem;
-drop table purchasepen;
-drop table zoo;
-create table
