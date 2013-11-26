@@ -127,7 +127,14 @@ function printAnimal($result) {
 	echo "</tbody></table>";
 }
     
-    
+function printNestedQuery($result) {
+    echo "<table cellspacing='0'>";
+    echo "<thead><tr><th>Pen ID</th><th>Happiness</th></tr></thead><tbody>";
+    while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
+        echo "<tr><td>" . $row["PEN_ID"] . "</td><td>" . $row["HAPPINESS"] . "</td></tr>";
+    }
+    echo "</tbody></table>";
+}
     
 function printItems($result) { //prints items from a select statement
     echo "<table cellspacing='0'>";

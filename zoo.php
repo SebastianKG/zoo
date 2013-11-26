@@ -6,15 +6,16 @@
 	</head>
 	<body>
 		<div id="mycontainer">
+
 			<?php 
 				$zooname = ($_COOKIE['zooname']!='' ? $_COOKIE['zooname'] : 'undefined');
 			 ?>
 
 			<div class="centered"><h1> Our Zoo, <?php echo $zooname; ?><button type="button" name="logout"  id="logout" class="logout floatRight">Log Out</button></h1></div>
-			<div class="clearAll"></div> 			
+			<div class="clearAll"></div>
 
 			<?php
-
+            global $nestedresult;
 			$success = True; //keep track of errors so it redirects the page only if there are no errors
 			$db_conn = OCILogon("ora_w8x7", "a67961045", "ug");
 
@@ -106,7 +107,18 @@
 					   } else {
 					   	echo "Incorrect Choice";
 					   }
-            	}
+            	} else if (array_key_exists('minnested', $_POST)) {
+                    executeplainSQL("drop view avghappiness");
+                    executePlainSQL("drop view nestedHappiness");
+                    executePlainSQL("create view avghappiness (pen_id, happiness) as select pen_id, avg(happiness) as happiness from purchaseanimal where zooname='" . $zooname . "' group by pen_id");
+                    $nestedresult = executePlainSQL("create view nestedHappiness (pen_id, happiness) as select pen_id, happiness from avghappiness where happiness=(select min(happiness) from avghappiness)");
+                } else if (array_key_exists('maxnested', $_POST)) {
+                    executeplainSQL("drop view avghappiness");
+                    executePlainSQL("drop view nestedHappiness");
+                    executePlainSQL("create view avghappiness (pen_id, happiness) as select pen_id, avg(happiness) as happiness from purchaseanimal where zooname='" . $zooname . "' group by pen_id");
+                    $nestedresult = executePlainSQL("create view nestedHappiness (pen_id, happiness) as select pen_id, happiness from avghappiness where happiness=(select max(happiness) from avghappiness)");
+
+                }
 
             	if ($_POST && $success) {
             		header('location: zoo.php');
@@ -116,6 +128,8 @@
 					$query = "select pen_id, currentpopulation, quality, name, type, bodysize, hydration, fullness, hygiene, happiness from purchasepen p, purchaseanimal a where p.id=a.pen_id and p.zooname='" . $zooname . "' and p.zooname=a.zooname";
 					$result = executePlainSQL($query);
 					printAnimalsWithButtons($result);
+                    $nestedresult = executePlainSQL("select * from nestedHappiness");
+                    printNestedQuery($nestedresult);
 				}
 
 				//Commit to save changes...
@@ -126,6 +140,13 @@
 				echo htmlentities($e['message']);
 			}
 			?>
+            <div class="minnested">
+                <form method="POST" action="zoo.php">
+                    <h3><div class="centered"><input type="submit" name="minnested" value="Pen with min average happiness"></div></h3>
+                    <h3><div class="centered"><input type="submit" name="maxnested" value="Pen with max average happiness"></div></h3>
+                </form>
+            </div>
+            <br/><br/>
 
 			<div class="submitbox">
 				<form method="POST" action="zoo.php">
