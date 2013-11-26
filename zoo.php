@@ -53,14 +53,13 @@
 
 			// Connect Oracle...
 			if ($db_conn) {
-
 				if (array_key_exists('delButton', $_POST)) {
 	                $name = $_POST['delanimalname'];
 	                $query = "delete from purchaseanimal where name='" . $name . "' and zooname='" . $zooname ."'";
 	                $result = executePlainSQL($query);
 	                OCICommit($db_conn);
             	} else if (array_key_exists('addnewpen', $_POST)) {
-	                $query = "insert into purchasepen values (0,5,(select max(id) from purchasepen where zooname = '" . $zooname . "') + 1,10,'" . $zooname ."')";
+	                $query = "insert into purchasepen values (0,5,(select max(id) from purchasepen where zooname = '" . $zooname . "') + 1,'" . $zooname ."')";
 	                $cashquery = "update zoo set cash=(select cash from zoo where name='" . $zooname . "')-500 where name='" . $zooname . "'";
 	                executePlainSQL($query);
 	                executePlainSQL($cashquery);
