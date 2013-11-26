@@ -18,6 +18,37 @@
 			$success = True; //keep track of errors so it redirects the page only if there are no errors
 			$db_conn = OCILogon("ora_w8x7", "a67961045", "ug");
 
+			/* CONSTANTS */
+
+			/* ZOO CONSTANTS */
+			$defaultcash = 10000;
+
+			/* ANIMAL CONSTANTS */
+
+			/* Charizard */
+			$charizardBozySize = 4;
+			$charizardCost = 1000;
+
+			/* Snorlax */
+
+			$snorlaxBozySize = 5;
+			$snorlaxCost = 1500;
+
+			/* Witches */
+
+			$witchBozySize = 2;
+			$witchCost = 800;
+
+			/* Giraffes */
+
+			$giraffeBozySize = 3;
+			$giraffeCost = 300;
+
+			/* Ants */
+
+			$antBozySize = 1;
+			$antCost = 10;
+
 			require ('functions.php');
 
 			// Connect Oracle...
