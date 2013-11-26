@@ -23,7 +23,7 @@
 
 				$myquery = "select cash from zoo where name = " . $zooname . "'";
 				$myresult = executePlainSQL($myquery);
-				echo "<div class="centered"> Cash: " . $myresult . "</div>"
+				echo "<div class="centered"> Cash: " . $myresult . "</div>";
 
 				require ('functions.php');
 
