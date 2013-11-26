@@ -11,14 +11,16 @@
 			 ?>
 
 			<div class="centered"><h1> Our Zoo, <?php echo $zooname; ?><button type="button" name="logout"  id="logout" class="logout floatRight">Log Out</button></h1></div>
-			<div class="clearAll"></div>
-
-			<div class="centered"><?php echo executePlainSQL("select cash from zoo where name='" . $zooname . "'");?></div>
+			<div class="clearAll"></div> 			
 
 			<?php
 
 			$success = True; //keep track of errors so it redirects the page only if there are no errors
 			$db_conn = OCILogon("ora_w8x7", "a67961045", "ug");
+
+			$myquery = "select cash from zoo where name = " . $zooname . "'";
+			$myresult = executePlainSQL($myquery);
+			echo "<div class="centered">" . $myresult . "</div>"
 
 			/* CONSTANTS */
 

@@ -16,13 +16,14 @@
 				<div class="centered"><h1> Tending to <?php echo $animalname; ?><button type="button" name="backtozoo"  id="backtozoo" class="floatRight">Back to Zoo</button></h1></div>
 				<div class="clearAll"></div>
 
-				<div class="centered"><?php echo executePlainSQL("select cash from zoo where name='" . $zooname . "'");?></div>
-
-
 				 <?php
 
 				$success = True; //keep track of errors so it redirects the page only if there are no errors
 				$db_conn = OCILogon("ora_w8x7", "a67961045", "ug");
+
+				$myquery = "select cash from zoo where name = " . $zooname . "'";
+				$myresult = executePlainSQL($myquery);
+				echo "<div class="centered"> Cash: " . $myresult . "</div>"
 
 				require ('functions.php');
 
