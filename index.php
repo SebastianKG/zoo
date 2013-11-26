@@ -15,11 +15,12 @@
 	                // Update tuple using data from user
 					$tuple = array (
 						":bind1" => $_POST['newzoo']
+						":bind2" => $_POST['newowner']
 					);
 					$alltuples = array (
 						$tuple
 					);
-					executeBoundSQL("insert into zoo values (:bind1,1000,Harlen)", $alltuples);     
+					executeBoundSQL("insert into zoo values (:bind1,$defaultcash,:bind2)", $alltuples);     
 					OCICommit($db_conn);
             	}
 
@@ -37,7 +38,9 @@
 			?>
 
 			<form method="POST" action="index.php">
-				Create New Zoo<br/>Enter New Zoo Name: <input type="text" name="newzoo"> <input type="submit" name="createnewzoo">Create</button>
+				Create New Zoo<br/>Enter New Zoo Name: <input type="text" name="newzoo">
+				<br/>Enter Owner Name <input type="text" name="newowner">
+				<br/><input type="submit" name="createnewzoo">
 			</form>
 
 		<script type="text/javascript" src="http://gridster.net/assets/js/libs/jquery-1.7.2.min.js"></script>

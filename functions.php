@@ -1,4 +1,10 @@
 <?php
+
+/* CONSTANTS */
+
+/* ZOO CONSTANTS */
+$defaultcash = 1000;
+
 function executePlainSQL($cmdstr) { //takes a plain (no bound variables) SQL command and executes it
 	//echo "<br>running ".$cmdstr."<br>";
 	global $db_conn, $success;
