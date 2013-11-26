@@ -59,6 +59,7 @@ CREATE TABLE PurchaseAnimal (
 
 insert into zoo values ('PokeZoo', 50000, 'Harlen');
 insert into zoo values ('MyCoolZoo', 10000, 'Norris');
+insert into zoo values ('Best Zoo Ever', 99999, 'Sebastian');
 insert into purchaseitem values ('HappyMeal', -25, -25, 20, 50, 10, 350, 'PokeZoo');
 insert into purchaseitem values ('Durian', 5, -20, 50, -10, 10, 200, 'PokeZoo');
 insert into purchaseitem values ('GameBoy', -5, -20, -5, 30, 10, 500, 'PokeZoo');
@@ -69,10 +70,21 @@ insert into purchaseitem values ('Durian', 5, -20, 50, -10, 10, 200, 'MyCoolZoo'
 insert into purchaseitem values ('GameBoy', -5, -20, -5, 30, 10, 500, 'MyCoolZoo');
 insert into purchaseitem values ('WhiteRussian', 20, -20, -5, 20, 10, 250, 'MyCoolZoo');
 insert into purchaseitem values ('AxeBodyspray', 0, 20, 0, -10, 10, 150, 'MyCoolZoo');
+insert into purchaseitem values ('HappyMeal', -25, -25, 20, 50, 30, 350, 'Best Zoo Ever');
+insert into purchaseitem values ('Durian', 5, -20, 50, -10, 30, 200, 'Best Zoo Ever');
+insert into purchaseitem values ('GameBoy', -5, -20, -5, 30, 30, 500, 'Best Zoo Ever');
+insert into purchaseitem values ('WhiteRussian', 20, -20, -5, 20, 30, 250, 'Best Zoo Ever');
+insert into purchaseitem values ('AxeBodyspray', 0, 20, 0, -10, 30, 150, 'Best Zoo Ever');
 insert into purchasepen values (6, 75, 1, 10, 'PokeZoo');
 insert into purchasepen values (4, 40, 2, 10, 'PokeZoo');
 insert into purchasepen values (1, 100, 1, 10, 'MyCoolZoo');
+insert into purchasepen values (15, 100, 1, 20, 'Best Zoo Ever');
 insert into purchaseanimal values ('Pikachu', 'Charizard', 78, 87, 67, 79, 4, 2, 'PokeZoo');
 insert into purchaseanimal values ('Zzzzz', 'Snorlax', 45, 80, 23, 50, 5, 1, 'PokeZoo');
 insert into purchaseanimal values ('Antsy', 'Ant', 25, 52, 43, 45, 1, 1, 'PokeZoo');
 insert into purchaseanimal values ('Tiny', 'Ant', 80, 81, 82, 83, 1, 1, 'MyCoolZoo');
+insert into purchaseanimal values ('Anty', 'Ant', 100, 100, 100, 100, 1, 1, 'Best Zoo Ever');
+insert into purchaseanimal values ('Witchy', 'Witch', 100, 100, 100, 100, 2, 1, 'Best Zoo Ever');
+insert into purchaseanimal values ('Giraffey', 'Giraffe', 100, 100, 100, 100, 3, 1, 'Best Zoo Ever');
+insert into purchaseanimal values ('Charizardy', 'Charizard', 100, 100, 100, 100, 4, 1, 'Best Zoo Ever');
+insert into purchaseanimal values ('Snorlaxy', 'Snorlax', 100, 100, 100, 100, 5, 1, 'Best Zoo Ever');

@@ -7,6 +7,17 @@
 	<body> 
 		<div id="mycontainer">
 			<div class="centered"><h1>ZOO</h1></div>
+            <div class="informativeviews">
+            <br/>
+                <form method="POST" action="index.php">
+                    <h3><div class="centered">Find zoos with:<br/><br/>
+                    <input type="submit" value="All Pokemon" name="findallpokemon">
+                    <input type="submit" value="All Animals" name="findallanimals">
+                    <input type="submit" value="Everything" name="findeverything">
+                    <div class="clearFloat"></div>
+                    </div></h3>
+                </form>
+            </div>
 
 			<?php
 				$success = True; //keep track of errors so it redirects the page only if there are no errors
@@ -30,8 +41,34 @@
 	                $query = "delete from zoo where name='" . $name . "'";
 	                $result = executePlainSQL($query);
 	                OCICommit($db_conn);
-            	}
-
+            	} else if (array_key_exists('findallpokemon', $_POST)) {
+                    executePlainSQL("drop view zooNames");
+                    executePlainSQL("drop view animals");
+                    executePlainSQL("drop view notZoos");
+                    executePlainSQL("create view zooNames as select name from zoo");
+                    executePlainSQL("create view animals as select distinct type from purchaseanimal where type='Charizard' or type='Snorlax'");
+                    executePlainSQL("create view notZoos as select distinct name from (select * from zooNames, animals minus select zooname, type from purchaseanimal)");
+                    $result = executePlainSQL("select * from zooNames minus select * from notZoos");
+                    printNestedAggregationTable($result);
+                } else if (array_key_exists('findallanimals', $_POST)) {
+                    executePlainSQL("drop view zooNames");
+                    executePlainSQL("drop view animals");
+                    executePlainSQL("drop view notZoos");
+                    executePlainSQL("create view zooNames as select name from zoo");
+                    executePlainSQL("create view animals as select distinct type from purchaseanimal where type='Ant' or type='Giraffe'");
+                    executePlainSQL("create view notZoos as select distinct name from (select * from zooNames, animals minus select zooname, type from purchaseanimal)");
+                    $result = executePlainSQL("select * from zooNames minus select * from notZoos");
+                    printNestedAggregationTable($result);
+                } else if (array_key_exists('findeverything', $_POST)) {
+                    executePlainSQL("drop view zooNames");
+                    executePlainSQL("drop view animals");
+                    executePlainSQL("drop view notZoos");
+                    executePlainSQL("create view zooNames as select name from zoo");
+                    executePlainSQL("create view animals as select distinct type from purchaseanimal where type='Charizard' or type='Snorlax' or type='Ant' or type='Giraffe' or type='Witch'");
+                    executePlainSQL("create view notZoos as select distinct name from (select * from zooNames, animals minus select zooname, type from purchaseanimal)");
+                    $result = executePlainSQL("select * from zooNames minus select * from notZoos");
+                    printNestedAggregationTable($result);
+                }
 				if ($db_conn) {
 					$result = executePlainSQL("select * from zoo");
 					printAllZoos($result);
@@ -50,7 +87,7 @@
 					<div class="clearFloat"></div>
 				</form>
 			</div>
-		</div>
+        </div>
 
 		<script type="text/javascript" src="http://gridster.net/assets/js/libs/jquery-1.7.2.min.js"></script>
 		<script src="application.js" type="text/javascript"></script>
