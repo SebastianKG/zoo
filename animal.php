@@ -21,11 +21,6 @@
 				$success = True; //keep track of errors so it redirects the page only if there are no errors
 				$db_conn = OCILogon("ora_w8x7", "a67961045", "ug");
 
-				$myquery = "select cash from zoo where name = '" . $zooname . "'";
-				$myresult = executePlainSQL($myquery);
-				$row = OCI_Fetch_Array($myresult, OCI_BOTH)
-				echo "<div class='centered'> Cash: " . $row["CASH"] . "</div>";
-
 				require ('functions.php');
 
 				// Connect Oracle...

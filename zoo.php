@@ -18,13 +18,6 @@
 			$success = True; //keep track of errors so it redirects the page only if there are no errors
 			$db_conn = OCILogon("ora_w8x7", "a67961045", "ug");
 
-			
-
-			$myquery = "select cash from zoo where name = '" . $zooname . "'";
-			$myresult = executePlainSQL($myquery);
-			$row = OCI_Fetch_Array($myresult, OCI_BOTH)
-			echo "<div class='centered'> Cash: " . $row["CASH"] . "</div>";
-
 			/* CONSTANTS */
 
 			/* ZOO CONSTANTS */
@@ -136,7 +129,7 @@
 
 			<div class="submitbox">
 				<form method="POST" action="zoo.php">
-					<h3><div class="centered"><input type="submit" name="addnewpen" value="Add New Pen"></div></h3>
+					<h3><div class="centered"><input type="submit" name="addnewpen" value="Add New Pen ($500)"></div></h3>
 				</form>
 			</div>
 
