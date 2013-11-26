@@ -38,7 +38,7 @@
 			?>
 			<div class="submitbox">
 				<form method="POST" action="index.php">
-					<h1>Create New Zoo<br/>Enter New Zoo Name: <input type="text" name="newzoo"> Enter Owner Name <input type="text" name="newowner"> <input type="submit" name="createnewzoo"></h1>
+					<h3>Create New Zoo // Zoo Name: <input type="text" name="newzoo"> Owner Name <input type="text" name="newowner"> <input type="submit" name="createnewzoo"></h3>
 				</form>
 			</div>
 
