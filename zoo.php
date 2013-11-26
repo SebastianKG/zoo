@@ -117,7 +117,7 @@
 				<form method="POST" action="zoo.php">
 					<h3><div class="centered"><input type="submit" name="addnewpen" value="Add New Pen"></div></h3>
 				</form>
-				<?php $totalCapacity = executePlainSQL("select sum(maxpopulation) from purchasepen where zooname='" $zooname "'"); ?>
+				<?php $totalCapacity = executePlainSQL("select sum(maxpopulation) from purchasepen where zooname='" . $zooname . "'"); ?>
 				<p>Total Capacity = <?php echo $totalCapacity; ?></p>
 			</div>
 
