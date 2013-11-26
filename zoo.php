@@ -137,6 +137,8 @@
 					$query = "select pen_id, currentpopulation, quality, name, type, bodysize, hydration, fullness, hygiene, happiness from purchasepen p, purchaseanimal a where p.id=a.pen_id and p.zooname='" . $zooname . "' and p.zooname=a.zooname";
 					$result = executePlainSQL($query);
 					printAnimalsWithButtons($result);
+                    $penquery = executePlainSQL("select count(*) as pens from purchasepen where zooname='" . $zooname . "'");
+                    printPens($penquery);
 				}
 
 				//Commit to save changes...
@@ -153,6 +155,11 @@
 					<h3><div class="centered"><input type="submit" name="addnewpen" value="Add New Pen ($500)"></div></h3>
 				</form>
 			</div>
+
+            <div class="centered">
+                <button type="button" name="reviewReports" id=<?php echo $zooname; ?> class="reviewReports centered">Review Reports</button>
+            </div>
+            <div class="clearAll"></div>
 
 			<div class="submitbox">
 				<form method="POST" action="zoo.php">
