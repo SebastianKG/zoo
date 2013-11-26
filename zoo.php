@@ -66,13 +66,20 @@
 	                OCICommit($db_conn);
 	            } else if (array_key_exists('nextday', $_POST)) {
 	            	$mainQuery = "insert into reviewreport values ((select count(*) from reviewreport where zooname='" . $zooname ."')+1, (select cash from zoo where name='" . $zooname . "'), '" . $zooname ."')";
+                    $cashquery = "update zoo set cash=(select count(*) from purchaseanimal where zooname='" . $zooname . "')*1000+(select cash from zoo where name='" . $zooname . "') where name='" . $zooname . "'";
 	            	$query1 = "update purchaseitem set amount=(select amount from purchaseitem where zooname='" . $zooname . "' and name='HappyMeal') + 1 where zooname='" . $zooname ."' and name='HappyMeal'";
 	            	$query2 = "update purchaseitem set amount=(select amount from purchaseitem where zooname='" . $zooname . "' and name='Durian') + 1 where zooname='" . $zooname . "' and name='Durian'";
 	            	$query3 = "update purchaseitem set amount=(select amount from purchaseitem where zooname='" . $zooname . "' and name='GameBoy') + 1 where zooname='" . $zooname . "' and name='GameBoy'";
 	            	$query4 = "update purchaseitem set amount=(select amount from purchaseitem where zooname='" . $zooname . "' and name='WhiteRussian') + 1 where zooname='" . $zooname . "' and name='WhiteRussian'";
 	            	$query5 = "update purchaseitem set amount=(select amount from purchaseitem where zooname='" . $zooname ."' and name='AxeBodyspray') + 1 where zooname='" . $zooname . "' and name='AxeBodyspray'";
-	            	executePlainSQL($Query);
-	            	OCICommit($db_conn);
+	            	executePlainSQL($mainQuery);
+                    executePlainSQL($cashquery);
+	            	executePlainSQL($query1);
+                    executePlainSQL($query2);
+                    executePlainSQL($query3);
+                    executePlainSQL($query4);
+                    executePlainSQL($query5);
+                    OCICommit($db_conn);
             	} else if (array_key_exists('addnewanimal', $_POST)) {
 				   $animal = $_POST['animal'];
 				   $penID = $_POST['penId'];
