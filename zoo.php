@@ -64,48 +64,62 @@
 	                executePlainSQL($query);
 	                executePlainSQL($cashquery);
 	                OCICommit($db_conn);
+	            } else if (array_key_exists('nextday', $_POST)) {
+	            	$mainQuery = "insert into reviewreport values ((select count(*) from reviewreport where zooname='" . $zooname ."')+1, (select cash from zoo where name='" . $zooname . "'), '" . $zooname ."')";
+	            	$query1 = "update purchaseitem set amount=(select amount from purchaseitem where zooname='" . $zooname . "' and name='HappyMeal') + 1 where zooname='" . $zooname ."' and name='HappyMeal'";
+	            	$query2 = "update purchaseitem set amount=(select amount from purchaseitem where zooname='" . $zooname . "' and name='Durian') + 1 where zooname='" . $zooname . "' and name='Durian'";
+	            	$query3 = "update purchaseitem set amount=(select amount from purchaseitem where zooname='" . $zooname . "' and name='GameBoy') + 1 where zooname='" . $zooname . "' and name='GameBoy'";
+	            	$query4 = "update purchaseitem set amount=(select amount from purchaseitem where zooname='" . $zooname . "' and name='WhiteRussian') + 1 where zooname='" . $zooname . "' and name='WhiteRussian'";
+	            	$query5 = "update purchaseitem set amount=(select amount from purchaseitem where zooname='" . $zooname ."' and name='AxeBodyspray') + 1 where zooname='" . $zooname . "' and name='AxeBodyspray'";
+	            	executePlainSQL($Query);
+	            	OCICommit($db_conn);
             	} else if (array_key_exists('addnewanimal', $_POST)) {
-					   $animal = $_POST['animal'];
-					   $penID = $_POST['penId'];
-					   $name = $_POST['newanimalname'];
-					   if ($animal == "Charizard") {
-					   	$query = "insert into purchaseanimal values ('" . $name . "','Charizard',50,50,50,50," . $charizardBodySize . "," . $penID . ",'" . $zooname ."')";
-					   	$popQuery = "update purchasepen set currentpopulation = (select currentpopulation from purchasepen where zooname = '" . $zooname . "' and id = '" . $penID . "') + " . $charizardBodySize . "";
-		                $cashquery = "update zoo set cash=(select cash from zoo where name='" . $zooname . "')-" . $charizardCost . " where name='" . $zooname . "'";
-		                executePlainSQL($query);
-		                executePlainSQL($popQuery);
-		                executePlainSQL($cashquery);
-					   } else if ($animal == "Snorlax") {
-					   	$query = "insert into purchaseanimal values ('" . $name . "','Snorlax',50,50,50,50," . $snorlaxBodySize . "," . $penID . ",'" . $zooname ."')";
-					   	$popQuery = "update purchasepen set currentpopulation = (select currentpopulation from purchasepen where zooname = '" . $zooname . "' and id = '" . $penID . "') + " . $snorlaxBodySize . "";
-		                $cashquery = "update zoo set cash=(select cash from zoo where name='" . $zooname . "')-" . $snorlaxCost . " where name='" . $zooname . "'";
-		                executePlainSQL($query);
-		                executePlainSQL($popQuery);
-		                executePlainSQL($cashquery);
-					   } else if ($animal == "Witch") {
-					   	$query = "insert into purchaseanimal values ('" . $name . "','Witch',50,50,50,50," . $witchBodySize . "," . $penID . ",'" . $zooname ."')";
-					   	$popQuery = "update purchasepen set currentpopulation = (select currentpopulation from purchasepen where zooname = '" . $zooname . "' and id = '" . $penID . "') + " . $witchBodySize . "";
-		                $cashquery = "update zoo set cash=(select cash from zoo where name='" . $zooname . "')-" . $witchCost . " where name='" . $zooname . "'";
-		                executePlainSQL($query);
-		                executePlainSQL($popQuery);
-		                executePlainSQL($cashquery);
-					   } else if ($animal == "Ant") {
-					   	$query = "insert into purchaseanimal values ('" . $name . "','Ant',50,50,50,50," . $antBodySize . "," . $penID . ",'" . $zooname ."')";
-					   	$popQuery = "update purchasepen set currentpopulation = (select currentpopulation from purchasepen where zooname = '" . $zooname . "' and id = '" . $penID . "') + " . $antBodySize . "";
-		                $cashquery = "update zoo set cash=(select cash from zoo where name='" . $zooname . "')-" . $antCost . " where name='" . $zooname . "'";
-		                executePlainSQL($query);
-		                executePlainSQL($popQuery);
-		                executePlainSQL($cashquery);
-					   } else if ($animal == "Giraffe") {
-					   	$query = "insert into purchaseanimal values ('" . $name . "','Giraffe',50,50,50,50," . $giraffeBodySize . "," . $penID . ",'" . $zooname ."')";
-					   	$popQuery = "update purchasepen set currentpopulation = (select currentpopulation from purchasepen where zooname = '" . $zooname . "' and id = '" . $penID . "') + " . $giraffeBodySize . "";
-		                $cashquery = "update zoo set cash=(select cash from zoo where name='" . $zooname . "')-" . $giraffeCost . " where name='" . $zooname . "'";
-		                executePlainSQL($query);
-		                executePlainSQL($popQuery);
-		                executePlainSQL($cashquery);
-					   } else {
-					   	echo "Incorrect Choice";
-					   }
+				   $animal = $_POST['animal'];
+				   $penID = $_POST['penId'];
+				   $name = $_POST['newanimalname'];
+				   if ($animal == "Charizard") {
+				   	$query = "insert into purchaseanimal values ('" . $name . "','Charizard',50,50,50,50," . $charizardBodySize . "," . $penID . ",'" . $zooname ."')";
+				   	$popQuery = "update purchasepen set currentpopulation = (select currentpopulation from purchasepen where zooname = '" . $zooname . "' and id = '" . $penID . "') + " . $charizardBodySize . "";
+	                $cashquery = "update zoo set cash=(select cash from zoo where name='" . $zooname . "')-" . $charizardCost . " where name='" . $zooname . "'";
+	                executePlainSQL($query);
+	                executePlainSQL($popQuery);
+	                executePlainSQL($cashquery);
+	                OCICommit($db_conn);
+				   } else if ($animal == "Snorlax") {
+				   	$query = "insert into purchaseanimal values ('" . $name . "','Snorlax',50,50,50,50," . $snorlaxBodySize . "," . $penID . ",'" . $zooname ."')";
+				   	$popQuery = "update purchasepen set currentpopulation = (select currentpopulation from purchasepen where zooname = '" . $zooname . "' and id = '" . $penID . "') + " . $snorlaxBodySize . "";
+	                $cashquery = "update zoo set cash=(select cash from zoo where name='" . $zooname . "')-" . $snorlaxCost . " where name='" . $zooname . "'";
+	                executePlainSQL($query);
+	                executePlainSQL($popQuery);
+	                executePlainSQL($cashquery);
+	                OCICommit($db_conn);
+				   } else if ($animal == "Witch") {
+				   	$query = "insert into purchaseanimal values ('" . $name . "','Witch',50,50,50,50," . $witchBodySize . "," . $penID . ",'" . $zooname ."')";
+				   	$popQuery = "update purchasepen set currentpopulation = (select currentpopulation from purchasepen where zooname = '" . $zooname . "' and id = '" . $penID . "') + " . $witchBodySize . "";
+	                $cashquery = "update zoo set cash=(select cash from zoo where name='" . $zooname . "')-" . $witchCost . " where name='" . $zooname . "'";
+	                executePlainSQL($query);
+	                executePlainSQL($popQuery);
+	                executePlainSQL($cashquery);
+	                OCICommit($db_conn);
+				   } else if ($animal == "Ant") {
+				   	$query = "insert into purchaseanimal values ('" . $name . "','Ant',50,50,50,50," . $antBodySize . "," . $penID . ",'" . $zooname ."')";
+				   	$popQuery = "update purchasepen set currentpopulation = (select currentpopulation from purchasepen where zooname = '" . $zooname . "' and id = '" . $penID . "') + " . $antBodySize . "";
+	                $cashquery = "update zoo set cash=(select cash from zoo where name='" . $zooname . "')-" . $antCost . " where name='" . $zooname . "'";
+	                executePlainSQL($query);
+	                executePlainSQL($popQuery);
+	                executePlainSQL($cashquery);
+	                OCICommit($db_conn);
+				   } else if ($animal == "Giraffe") {
+				   	$query = "insert into purchaseanimal values ('" . $name . "','Giraffe',50,50,50,50," . $giraffeBodySize . "," . $penID . ",'" . $zooname ."')";
+				   	$popQuery = "update purchasepen set currentpopulation = (select currentpopulation from purchasepen where zooname = '" . $zooname . "' and id = '" . $penID . "') + " . $giraffeBodySize . "";
+	                $cashquery = "update zoo set cash=(select cash from zoo where name='" . $zooname . "')-" . $giraffeCost . " where name='" . $zooname . "'";
+	                executePlainSQL($query);
+	                executePlainSQL($popQuery);
+	                executePlainSQL($cashquery);
+	                OCICommit($db_conn);
+				   } else {
+				   	echo "Incorrect Choice";
+				   }
             	}
 
             	if ($_POST && $success) {
@@ -146,6 +160,12 @@
 					<br/>Pen # to insert into: <input type="text" name="penId">
 					<br/>Name: <input type="text" name="newanimalname">
 					<br/><input type="submit" name="addnewanimal" value="Add New Animal">
+				</form>
+			</div>
+
+			<div class="submitbox">
+				<form method="POST" action="zoo.php">
+					<div class="centered"><input type="submit" name="nextday" value="Next Day"></div>
 				</form>
 			</div>
 
