@@ -28,7 +28,21 @@
 	                $query = "delete from purchaseanimal where name='" . $name . "' and zooname='" . $zooname ."'";
 	                $result = executePlainSQL($query);
 	                OCICommit($db_conn);
+            	} else if {
+            		if (array_key_exists('addnewpen', $_POST)) {
+	                $query = "insert into purchasepen values (0,5,(select max(id) from purchasepen where zooname = '" . $zooname . "') + 1,10,'" . $zooname ."')";
+	                $result = executePlainSQL($query);
+	                OCICommit($db_conn);
             	}
+
+/*            	currentpopulation	INTEGER,
+				quality				INTEGER,
+				id 					INTEGER,
+				maxpopulation		INTEGER,
+				zooname				VARCHAR(32),
+				PRIMARY KEY (id, zooname),
+				FOREIGN KEY (zooname) REFERENCES Zoo(name)
+					ON DELETE CASCADE*/
 
             	if ($_POST && $success) {
             		header('location: zoo.php');
@@ -48,6 +62,13 @@
 				echo htmlentities($e['message']);
 			}
 			?>
+
+			<div class="submitbox">
+				<form method="POST" action="zoo.php">
+					<h3><div class="centered"><input type="submit" name="addnewpen" value="Add New Pen"></div></h3>
+				</form>
+			</div>
+
 		</div>
 		<script type="text/javascript" src="http://gridster.net/assets/js/libs/jquery-1.7.2.min.js"></script>
   		<script src="application.js" type="text/javascript"></script>
