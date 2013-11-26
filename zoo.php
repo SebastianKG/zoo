@@ -37,7 +37,7 @@
             	} else if (array_key_exists('addnewanimal', $_POST)) {
 					   $animal = $_POST['animal'];
 					   $penID = $_POST['penId']
-					   $name = $_POST["newanimalname"];
+					   $name = $_POST['newanimalname'];
 					   if ($animal == "Charizard") {
 					   	$query = "insert into purchaseanimal values ('" . $name . "','Charizard',50,50,50,50,$charizardBodySize,$penID,'" . $zooname ."')";
 					   	$popQuery = "update purchasepen set currentpopulation = (select currentpopulation from purchasepen where zooname = '" . $zooname . "') + " . $charizardBodySize . "";
