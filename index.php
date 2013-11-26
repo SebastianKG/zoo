@@ -5,6 +5,7 @@
 		<link rel="stylesheet" type="text/css" href="main.css"/>
 	</head>
 	<body> 
+		<div id="mycontainer">
 			<?php
 				$success = True; //keep track of errors so it redirects the page only if there are no errors
 				$db_conn = OCILogon("ora_w8x7", "a67961045", "ug");
@@ -38,9 +39,11 @@
 			?>
 			<div class="submitbox">
 				<form method="POST" action="index.php">
-					<h3>Create New Zoo // Zoo Name: <input type="text" name="newzoo"> Owner Name <input type="text" name="newowner"> <input type="submit" name="createnewzoo"></h3>
+					<h3><div class="floatLeft">Create New Zoo</div> <div class="floatRight">Zoo Name: <input type="text" name="newzoo"> Owner Name <input type="text" name="newowner"> <input type="submit" name="createnewzoo"></div></h3>
+					<div class="clearFloat"></div>
 				</form>
 			</div>
+		</div>
 
 		<script type="text/javascript" src="http://gridster.net/assets/js/libs/jquery-1.7.2.min.js"></script>
 		<script src="application.js" type="text/javascript"></script>

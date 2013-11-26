@@ -1,7 +1,9 @@
 .centered { text-align: center; }
 .floatLeft { float: left; }
+.floatRight { float: right; }
 .clearFloat { clear: all; }
 .submitbox { margin: 10px auto; }
+#mycontainer { margin-top: 30px; }
 
 /* CSS below primarily from open-source resource, http://johnsardine.com/example/simple-little-table/ */
 
