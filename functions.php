@@ -105,9 +105,9 @@ function printAnimal($result) {
     
 function printItems($result) { //prints items from a select statement
     echo "<table cellspacing='0'>";
-    echo "<thead><tr><th>Name</th><th>Hydration Effect</th><th>Hygiene Effect</th><th>Fullness Effect</th><th>Happiness Effect</th><th>Amount</th><th>Price</th><th></th></tr></thead><tbody>";
+    echo "<thead><tr><th>Name</th><th>Hydration Effect</th><th>Fullness Effect</th><th>Hygiene Effect</th><th>Happiness Effect</th><th>Amount</th><th>Price</th><th></th></tr></thead><tbody>";
     while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
-        echo "<tr><td>" . $row["NAME"] . "</td><td>" . $row["HYDRATIONEFFECT"] . "</td><td>" . $row["HYGIENEEFFECT"] . "</td><td>" . $row["FULLNESSEFFECT"] . "</td><td>" . $row["HAPPINESSEFFECT"] . "</td><td>" . $row["AMOUNT"] . "</td><td>" . $row["PRICE"] . "</td><td><input type='submit' value='Buy' name='" . $row["NAME"] . "'></p></td></tr>";
+        echo "<tr><td>" . $row["NAME"] . "</td><td>" . $row["HYDRATIONEFFECT"] . "</td><td>" . $row["FULLNESSEFFECT"] . "</td><td>" . $row["HYGIENEEFFECT"] . "</td><td>" . $row["HAPPINESSEFFECT"] . "</td><td>" . $row["AMOUNT"] . "</td><td>" . $row["PRICE"] . "</td><td><input type='submit' value='Buy' name='" . $row["NAME"] . "'></p></td></tr>";
     }
     echo "</tbody></table>";
 }
