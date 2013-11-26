@@ -23,10 +23,22 @@
 			// Connect Oracle...
 			if ($db_conn) {
 
-				// Select data...
-				$query = "select pen_id, maxpopulation, quality, name, type, bodysize, hydration, fullness, hygiene, happiness from purchasepen, purchaseanimal where id=pen_id and purchasepen.zooname='" . $zooname . "'";
-				$result = executePlainSQL($query);
-				printAnimalsWithButtons($result);
+				if (array_key_exists('delButton', $_POST)) {
+	                $name = $_POST['delanimalname'];
+	                $query = "delete from purchaseanimal where name=$name and zooname=$zooname";
+	                result = executePlainSQL($query);
+	                OCICommit($db_conn);
+            	}
+
+            	if ($_POST && $success) {
+            		header('location: zoo.php');
+            		die();
+            	} else {
+					// Select data...
+					$query = "select pen_id, maxpopulation, quality, name, type, bodysize, hydration, fullness, hygiene, happiness from purchasepen, purchaseanimal where id=pen_id and purchasepen.zooname='" . $zooname . "'";
+					$result = executePlainSQL($query);
+					printAnimalsWithButtons($result);
+				}
 
 				//Commit to save changes...
 				OCILogoff($db_conn);
