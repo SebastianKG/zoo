@@ -14,7 +14,7 @@
 				if (array_key_exists('createnewzoo', $_POST)) {
 	                // Update tuple using data from user
 					$tuple = array (
-						":bind1" => $_POST['newzoo']
+						":bind1" => $_POST['newzoo'],
 						":bind2" => $_POST['newowner']
 					);
 					$alltuples = array (
