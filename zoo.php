@@ -28,8 +28,7 @@
 	                $query = "delete from purchaseanimal where name='" . $name . "' and zooname='" . $zooname ."'";
 	                $result = executePlainSQL($query);
 	                OCICommit($db_conn);
-            	} else if {
-            		if (array_key_exists('addnewpen', $_POST)) {
+            	} else if (array_key_exists('addnewpen', $_POST)) {
 	                $query = "insert into purchasepen values (0,5,(select max(id) from purchasepen where zooname = '" . $zooname . "') + 1,10,'" . $zooname ."')";
 	                $result = executePlainSQL($query);
 	                OCICommit($db_conn);
